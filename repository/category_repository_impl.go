@@ -61,4 +61,5 @@ func (repository *CategoryRepositoryImpl) FindAll(ctx context.Context, tx *sql.T
 		helper.PanicIfError(err)
 		categories = append(categories, category)
 	}
+	return categories
 }
