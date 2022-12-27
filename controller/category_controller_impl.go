@@ -86,7 +86,7 @@ func (controller *CategoryControllerImpl) FindById(writer http.ResponseWriter, r
 }
 func (controller *CategoryControllerImpl) FindAll(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
 
-	categoryResponses := controller.CategoryService.FIndAll(request.Context())
+	categoryResponses := controller.CategoryService.FindAll(request.Context())
 
 	webResponse := web.WebResponse{
 		Code:   200,
