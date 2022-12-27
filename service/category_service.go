@@ -1,7 +1,7 @@
 package service
 
 import (
-	"chanaseptiari/learn-restful-api-golang/model/domain/web"
+	"chanaseptiari/learn-restful-api-golang/model/web"
 	"context"
 )
 

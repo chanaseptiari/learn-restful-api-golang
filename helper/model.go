@@ -2,7 +2,7 @@ package helper
 
 import (
 	"chanaseptiari/learn-restful-api-golang/model/domain"
-	"chanaseptiari/learn-restful-api-golang/model/domain/web"
+	"chanaseptiari/learn-restful-api-golang/model/web"
 )
 
 func ToCategoryResponse(category domain.Category) web.CategoryResponse {

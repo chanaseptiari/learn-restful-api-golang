@@ -2,7 +2,7 @@ package controller
 
 import (
 	"chanaseptiari/learn-restful-api-golang/helper"
-	"chanaseptiari/learn-restful-api-golang/model/domain/web"
+	"chanaseptiari/learn-restful-api-golang/model/web"
 	"chanaseptiari/learn-restful-api-golang/service"
 	"net/http"
 	"strconv"

@@ -3,7 +3,7 @@ package service
 import (
 	"chanaseptiari/learn-restful-api-golang/helper"
 	"chanaseptiari/learn-restful-api-golang/model/domain"
-	"chanaseptiari/learn-restful-api-golang/model/domain/web"
+	"chanaseptiari/learn-restful-api-golang/model/web"
 	"chanaseptiari/learn-restful-api-golang/repository"
 	"context"
 	"database/sql"
