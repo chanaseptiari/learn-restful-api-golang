@@ -5,14 +5,13 @@ import (
 
 	"chanaseptiari/learn-restful-api-golang/conf"
 	"chanaseptiari/learn-restful-api-golang/controller"
-	"chanaseptiari/learn-restful-api-golang/exception"
 	"chanaseptiari/learn-restful-api-golang/helper"
+	"chanaseptiari/learn-restful-api-golang/middleware"
 	"chanaseptiari/learn-restful-api-golang/repository"
 	"chanaseptiari/learn-restful-api-golang/service"
 	"net/http"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
@@ -24,19 +23,11 @@ func main() {
 	categoryService := service.NewCategoryService(categoryRepository, db, validate)
 	categoryController := controller.NewCategoryConrtoller(categoryService)
 
-	router := httprouter.New()
-
-	router.GET("/api/categories", categoryController.FindAll)
-	router.GET("/api/categories/:categoryId", categoryController.FindById)
-	router.POST("/api/categories", categoryController.Create)
-	router.PUT("/api/categories/:categoryId", categoryController.Update)
-	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
-
-	router.PanicHandler = exception.ErrorHandler
+	router := conf.NewRouter(categoryController)
 
 	server := http.Server{
 		Addr:    ":3000",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
 	err := server.ListenAndServe()
