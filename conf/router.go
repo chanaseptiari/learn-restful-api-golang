@@ -2,6 +2,7 @@ package conf
 
 import (
 	"chanaseptiari/learn-restful-api-golang/controller"
+	"chanaseptiari/learn-restful-api-golang/exception"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -14,5 +15,8 @@ func NewRouter(categoryController controller.CategoryController) *httprouter.Rou
 	router.POST("/api/categories", categoryController.Create)
 	router.PUT("/api/categories/:categoryId", categoryController.Update)
 	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
+
+	router.PanicHandler = exception.ErrorHandler
+
 	return router
 }
